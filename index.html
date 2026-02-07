@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Daily Polyglot News</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/180/000000/news.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Noto+Serif+KR:wght@400;700&display=swap');
+
+        body {
+            background-color: #f4f1ea; /* 신문지 느낌의 베이지색 */
+            font-family: 'Noto Serif KR', serif;
+            color: #1a1a1a;
+        }
+
+        .newspaper-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            border: 1px solid #d1cfc7;
+            background: #fdfdfb;
+            box-shadow: 0 0 40px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 4px double #1a1a1a;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .newspaper-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            column-rule: 1px solid #d1cfc7;
+        }
+
+        .article {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .article:hover { background-color: #fafaf8; }
+
+        .article-category {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #333;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .top-info {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 5px 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* 스켈레톤 로딩 애니메이션 */
+        .loading {
+            height: 20px;
+            background: #eee;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+    </style>
+</head>
+<body>
+
+    <div class="newspaper-container my-8">
+        <header>
+            <div class="top-info">
+                <span>Vol. 2026 - No. 042</span>
+                <span id="current-date">SATURDAY, FEBRUARY 07, 2026</span>
+                <span>Polyglot Edition</span>
+            </div>
+            <h1 class="newspaper-title">The Global Times</h1>
+            <div class="flex justify-center gap-4 mt-4 no-print">
+                <button onclick="fetchNews('en')" class="px-4 py-1 border border-black hover:bg-black hover:text-white transition">English</button>
+                <button onclick="fetchNews('jp')" class="px-4 py-1 border border-black hover:bg-black hover:text-white transition">日本語</button>
+                <button onclick="fetchNews('fr')" class="px-4 py-1 border border-black hover:bg-black hover:text-white transition">Français</button>
+            </div>
+        </header>
+
+        <main id="news-container" class="news-grid">
+            <div class="article">
+                <div class="loading w-1/4"></div>
+                <div class="loading w-full h-8"></div>
+                <div class="loading w-full h-24"></div>
+            </div>
+            <div class="article">
+                <div class="loading w-1/4"></div>
+                <div class="loading w-full h-8"></div>
+                <div class="loading w-full h-24"></div>
+            </div>
+        </main>
+
+        <footer class="mt-12 pt-4 border-t border-black text-center text-xs text-gray-500">
+            © 2026 Polyglot Master Digital Newspaper. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        // 날짜 표시
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', options).toUpperCase();
+
+        // 뉴스 가져오기 함수
+        // 실제 운영 시에는 NewsAPI 같은 서비스의 키를 발급받아 사용해야 합니다.
+        // 여기서는 데모용으로 샘플 데이터를 불러오는 로직을 넣었습니다.
+        async function fetchNews(lang) {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '<p class="col-span-full text-center py-10">Fetching world news...</p>';
+
+            try {
+                // 참고: 실제 구현 시에는 특정 뉴스 API 엔드포인트를 호출합니다.
+                // 아래는 구조를 보여드리기 위한 모의 데이터 로직입니다.
+                const sampleNews = {
+                    en: [
+                        { cat: "Technology", title: "AI Revolutionizes Language Learning in 2026", content: "New breakthroughs in neural networks have made it possible for AI to teach languages with human-like empathy..." },
+                        { cat: "Economy", title: "Global Markets Stabilize After Digital Currency Shift", content: "Major economies report steady growth as the new unified digital payment system enters its second phase of implementation..." },
+                        { cat: "Space", title: "First Sustainable Colony on Moon Celebrates Anniversary", content: "The lunar base Alpha has successfully completed its first year of full self-sufficiency, marking a milestone for humanity..." }
+                    ],
+                    jp: [
+                        { cat: "社会", title: "2026年、多言語学習の重要性が高まる", content: "グローバル化が進む中、日本国内でも英語以外の言語を学ぶ人々が急増しており、新しい学習法が注目されています..." },
+                        { cat: "経済", title: "円相場、デジタル円の導入で新たな局面へ", content: "日本銀行が本格導入したデジタル円により、決済の透明性と速度が劇的に向上し、経済活性化が期待されています..." }
+                    ],
+                    fr: [
+                        { cat: "Culture", title: "Le Louvre lance une visite en réalité augmentée", content: "Le plus grand musée du monde propose désormais une expérience immersive unique pour découvrir ses chefs-d'œuvre..." }
+                    ]
+                };
+
+                renderArticles(sampleNews[lang] || sampleNews['en']);
+            } catch (error) {
+                container.innerHTML = '<p class="col-span-full text-center text-red-500">Failed to load news. Please try again later.</p>';
+            }
+        }
+
+        function renderArticles(articles) {
+            const container = document.getElementById('news-container');
+            container.innerHTML = articles.map(art => `
+                <div class="article" onclick="copyToClipboard('${art.title}')">
+                    <div class="article-category">${art.cat}</div>
+                    <h2 class="article-title">${art.title}</h2>
+                    <p class="article-content">${art.content}</p>
+                    <div class="mt-4 text-[10px] text-gray-400">Click to copy title for study</div>
+                </div>
+            `).join('');
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('제목이 복사되었습니다! 단어장에 추가해 보세요.');
+            });
+        }
+
+        // 초기 실행
+        window.onload = () => fetchNews('en');
+    </script>
+</body>
+</html>
