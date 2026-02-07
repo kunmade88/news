@@ -3,176 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polyglot News: Stocks, Beauty & World</title>
+    <title>2026 Industry Insight</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/180/000000/newspaper.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Noto+Serif+KR:wght@400;700&family=Cinzel:wght@700&display=swap');
-
-        body {
-            background-color: #f2efea;
-            font-family: 'Noto Serif KR', serif;
-            color: #1a1a1a;
-            padding: 1rem;
-        }
-
-        /* 신문 레이아웃 */
-        .paper-canvas {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: #fdfdfb;
-            padding: 3rem;
-            box-shadow: 0 0 50px rgba(0,0,0,0.1);
-            border: 1px solid #d1cfc7;
-            position: relative;
-        }
-
-        /* 헤더 디자인 */
-        header {
-            text-align: center;
-            border-bottom: 5px solid #1a1a1a;
-            margin-bottom: 2rem;
-        }
-
-        .paper-title {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 10vw, 4.5rem);
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin: 10px 0;
-        }
-
-        .section-divider {
-            border-top: 2px solid #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-            padding: 5px 0;
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
-        /* 신문 칸 나누기 기법 */
-        .news-columns {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .news-columns { grid-template-columns: 1fr; }
-        }
-
-        /* 기사 스타일 */
-        .article {
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-
-        .cat-tag {
-            display: inline-block;
-            background: #1a1a1a;
-            color: white;
-            padding: 2px 8px;
-            font-size: 0.7rem;
-            font-family: sans-serif;
-            margin-bottom: 10px;
-        }
-
-        .title-stocks { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.8rem; line-height: 1.1; }
-        .title-beauty { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 1.6rem; color: #b83280; }
-        .title-world { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-
-        .content {
-            margin-top: 10px;
-            font-size: 1rem;
-            line-height: 1.7;
-            text-align: justify;
-            column-count: 2; /* 실제 신문처럼 2단 구성 */
-            column-gap: 1.5rem;
-        }
-
-        @media (max-width: 600px) {
-            .content { column-count: 1; }
-        }
-
-        /* 클릭 시 복사 효과 */
-        .article:active { opacity: 0.7; }
-
-        .sidebar {
-            border-left: 1px solid #d1cfc7;
-            padding-left: 2rem;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700;900&display=swap');
+        body { font-family: 'Pretendard', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .category-card { transition: all 0.3s ease; border-left: 4px solid transparent; }
+        .category-card:hover { transform: translateY(-2px); border-left-color: #3b82f6; }
+        .news-btn { @apply flex items-center justify-between w-full p-4 mb-3 bg-white rounded-xl shadow-sm border border-slate-200 hover:bg-slate-50 transition-all; }
+        .icon-box { @apply w-10 h-10 rounded-lg flex items-center justify-center mr-4 text-white; }
     </style>
 </head>
-<body>
+<body class="p-4 md:p-8">
 
-    <div class="paper-canvas">
-        <header>
-            <div class="flex justify-between text-xs font-bold uppercase mb-2">
-                <span>Seoul / Global Edition</span>
-                <span>Established 2026</span>
-            </div>
-            <h1 class="paper-title">THE POLYGLOT POST</h1>
-            <div class="section-divider">
-                <span>SATURDAY, FEBRUARY 7, 2026</span>
-                <span id="price">VOL. 1 - No. 1</span>
-                <span>KOREA & WORLD</span>
-            </div>
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+            <h1 class="text-3xl font-black text-slate-900 tracking-tight">Intelligence Desk <span class="text-blue-600">2026</span></h1>
+            <p class="text-slate-500 font-medium">실시간 산업동향 및 투자 뉴스 스캐너</p>
         </header>
 
-        <div class="news-columns">
-            <section>
-                <div class="article" onclick="copyText(this)">
-                    <span class="cat-tag">FINANCE / STOCKS</span>
-                    <h2 class="title-stocks">NVIDIA Leads AI Sector to Record Highs; Global Markets Rally</h2>
-                    <div class="content">
-                        Wall Street saw significant gains this week as major technology firms reported better-than-expected earnings. The surge in AI-related stocks has pushed the S&P 500 to a new historic peak. Analysts suggest that the demand for high-performance chips will continue to drive market sentiment throughout 2026. Experts recommend watching the interest rate decisions in the coming quarter.
+        <section class="mb-10">
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center">
+                <span class="w-8 h-[1px] bg-slate-300 mr-2"></span> Stock & Economy
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <button onclick="searchNews('국내 증시 시황')" class="news-btn">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-blue-600">📈</div>
+                        <div class="text-left"><p class="font-bold text-sm">국내 증시 시황</p><p class="text-[11px] text-slate-400">코스피, 코스닥 동향</p></div>
                     </div>
-                </div>
-
-                <div class="article" onclick="copyText(this)">
-                    <span class="cat-tag">BEAUTY & HEALTH</span>
-                    <h2 class="title-beauty">The Rise of "Glass Skin": K-Beauty Trends Dominating Paris Fashion Week</h2>
-                    <div class="content">
-                        The global beauty industry is shifting towards hyper-personalized skincare routines. Natural ingredients sourced from the Korean peninsula are gaining massive popularity among European consumers. Clinical studies show that fermented extract-based serums improve skin elasticity by 40% compared to traditional formulas. Sustainable packaging has also become a non-negotiable standard.
+                    <span class="text-slate-300">➔</span>
+                </button>
+                <button onclick="searchNews('반도체 산업 전망')" class="news-btn">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-slate-800">💾</div>
+                        <div class="text-left"><p class="font-bold text-sm">반도체/AI 산업</p><p class="text-[11px] text-slate-400">엔비디아, 삼성전자, SK하이닉스</p></div>
                     </div>
-                </div>
-            </section>
+                    <span class="text-slate-300">➔</span>
+                </button>
+                <button onclick="searchNews('미국 증시 나스닥')" class="news-btn">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-emerald-600">💵</div>
+                        <div class="text-left"><p class="font-bold text-sm">해외 증시 (뉴욕)</p><p class="text-[11px] text-slate-400">나스닥, S&P 500 리포트</p></div>
+                    </div>
+                    <span class="text-slate-300">➔</span>
+                </button>
+                <button onclick="searchNews('금리 인플레이션 전망')" class="news-btn">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-amber-600">📊</div>
+                        <div class="text-left"><p class="font-bold text-sm">거시 경제</p><p class="text-[11px] text-slate-400">금리, 환율, 인플레이션</p></div>
+                    </div>
+                    <span class="text-slate-300">➔</span>
+                </button>
+            </div>
+        </section>
 
-            <aside class="sidebar">
-                <h3 class="font-black border-b-4 border-black mb-4 uppercase text-sm">World Briefing</h3>
-                
-                <div class="article text-sm" onclick="copyText(this)">
-                    <h2 class="title-world">Mars Mission Update</h2>
-                    <p class="mt-2">SpaceX reports successful landing of the supply drone on Jezero Crater. This marks a new era in interplanetary logistics.</p>
-                </div>
+        <section class="mb-10">
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center">
+                <span class="w-8 h-[1px] bg-slate-300 mr-2"></span> Cosmetics & Beauty Biz
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <button onclick="searchNews('화장품 정책 규제')" class="news-btn border-l-4 border-l-rose-400">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-rose-500">⚖️</div>
+                        <div class="text-left"><p class="font-bold text-sm">화장품 정책/규제</p><p class="text-[11px] text-slate-400">식약처 고시, 성분 규제 정보</p></div>
+                    </div>
+                    <span class="text-slate-300">➔</span>
+                </button>
+                <button onclick="searchNews('뷰티 신제품 출시')" class="news-btn border-l-4 border-l-rose-400">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-rose-400">✨</div>
+                        <div class="text-left"><p class="font-bold text-sm">신제품 & 트렌드</p><p class="text-[11px] text-slate-400">K-뷰티 신제품, 신기술 소식</p></div>
+                    </div>
+                    <span class="text-slate-300">➔</span>
+                </button>
+                <button onclick="searchNews('화장품 마케팅 전략')" class="news-btn border-l-4 border-l-rose-400">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-rose-600">📱</div>
+                        <div class="text-left"><p class="font-bold text-sm">마케팅/유통</p><p class="text-[11px] text-slate-400">올리브영, 이커머스, 마케팅 전략</p></div>
+                    </div>
+                    <span class="text-slate-300">➔</span>
+                </button>
+                <button onclick="searchNews('Global Beauty Industry Market')" class="news-btn border-l-4 border-l-rose-400">
+                    <div class="flex items-center">
+                        <div class="icon-box bg-slate-700">🌍</div>
+                        <div class="text-left"><p class="font-bold text-sm">Global Beauty</p><p class="text-[11px] text-slate-400">해외 시장 동향 (L'Oreal, Estee Lauder)</p></div>
+                    </div>
+                    <span class="text-slate-300">➔</span>
+                </button>
+            </div>
+        </section>
 
-                <div class="article text-sm" onclick="copyText(this)">
-                    <h2 class="title-world">Climate Summit 2026</h2>
-                    <p class="mt-2">World leaders gather in Geneva to finalize the zero-emission treaty for the maritime shipping industry.</p>
-                </div>
-
-                <div class="bg-indigo-50 p-4 mt-10 rounded-lg no-print">
-                    <h4 class="font-bold text-indigo-900 mb-2">Study Mode</h4>
-                    <p class="text-[11px] text-indigo-700">문장을 클릭하면 복사됩니다! 아까 만든 단어장 앱에 바로 추가해보세요.</p>
-                </div>
-            </aside>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="text-sm font-bold mb-3">Custom Search</h3>
+            <div class="flex gap-2">
+                <input type="text" id="custom-query" placeholder="기업명이나 키워드 입력..." class="flex-1 bg-slate-100 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-blue-400 text-sm">
+                <button onclick="searchNews(document.getElementById('custom-query').value)" class="bg-slate-900 text-white px-6 py-2 rounded-xl font-bold text-sm">검색</button>
+            </div>
         </div>
     </div>
 
     <script>
-        function copyText(element) {
-            const title = element.querySelector('h2').innerText;
-            navigator.clipboard.writeText(title).then(() => {
-                // 상단에 작은 알림 띄우기
-                const toast = document.createElement('div');
-                toast.innerText = `Copied to Clipboard!`;
-                toast.className = "fixed top-10 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-2 rounded-full text-xs z-50 animate-bounce";
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 2000);
-            });
+        function searchNews(query) {
+            if(!query) return;
+            // 구글 뉴스 실시간 검색 결과로 연결 (최신순 정렬 설정 포함 가능)
+            const url = `https://www.google.com/search?q=${encodeURIComponent(query)}&tbm=nws&tbs=qdr:d`; // qdr:d 는 지난 24시간 내 기사만 보기
+            window.open(url, '_blank');
         }
     </script>
 </body>
