@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 Intelligence Desk Pro</title>
+    <title>2026 Industry Insight Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700;900&display=swap');
         body { font-family: 'Pretendard', sans-serif; background-color: #f8fafc; color: #0f172a; -webkit-tap-highlight-color: transparent; }
-        .btn-card { @apply bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md active:scale-95 transition-all text-left flex flex-col justify-between h-32; cursor: pointer; }
+        .btn-card { @apply bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md active:scale-95 transition-all text-left flex flex-col justify-between; cursor: pointer; }
         .tag { @apply text-[10px] px-2 py-1 rounded-md font-bold mb-2 inline-block; }
-        .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        .live-tag { @apply text-[10px] text-blue-600 bg-blue-50 px-2 py-1 rounded font-bold; }
+        .num-val { @apply text-lg font-black text-slate-900 leading-none mt-1; }
+        .date-val { @apply text-[11px] text-rose-500 font-bold mt-1; }
     </style>
 </head>
 <body class="p-4 md:p-10">
@@ -19,82 +20,100 @@
     <div class="max-w-4xl mx-auto">
         <header class="mb-8 flex justify-between items-start">
             <div>
-                <h1 class="text-3xl font-black tracking-tight text-slate-900 leading-none">Intelligence <span class="text-blue-600">Desk</span></h1>
-                <p class="text-slate-500 font-medium mt-2 text-sm">실전 투자자를 위한 다이렉트 지표보드</p>
+                <h1 class="text-3xl font-black tracking-tight text-slate-900">Intelligence <span class="text-blue-600">Desk</span></h1>
+                <p class="text-slate-500 font-medium mt-1 text-sm">실전 투자용 핵심 지표 & 실시간 순위</p>
             </div>
             <div class="flex flex-col items-end">
-                <span class="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded mb-1 pulse">SYSTEM LIVE</span>
-                <span class="text-[10px] text-slate-400 font-mono">2026.02.07 20:27</span>
+                <span class="live-tag mb-1">DATA UPDATED</span>
+                <span class="text-[10px] text-slate-400 font-mono">2026.02.07 20:45</span>
             </div>
         </header>
 
         <h2 class="text-xs font-black text-slate-400 mb-4 flex items-center gap-2 uppercase tracking-widest">
-            <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Real-time Indicators
+            <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> Macro Indicators
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
             <div onclick="window.open('https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html', '_blank')" class="btn-card border-indigo-100">
-                <div><span class="tag bg-indigo-100 text-indigo-700">FedWatch</span>
-                <div class="font-bold text-[15px]">미국 금리 예측 확률</div></div>
-                <div class="text-[11px] text-slate-400 leading-tight">CME 전문 데이터 시각화 페이지로 연결</div>
+                <div>
+                    <span class="tag bg-indigo-100 text-indigo-700">US Interest Rate</span>
+                    <div class="num-val">3.75%</div>
+                    <div class="date-val italic">다음 회의: 03.18</div>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-3 leading-tight font-medium">CME FedWatch 실시간 확률 보기</div>
             </div>
 
             <div onclick="window.open('https://www.investing.com/economic-calendar/cpi-733', '_blank')" class="btn-card border-red-100">
-                <div><span class="tag bg-red-100 text-red-700">CPI (물가)</span>
-                <div class="font-bold text-[15px]">미국 CPI 상세지표</div></div>
-                <div class="text-[11px] text-slate-400 leading-tight">다음 발표: 02.13 (금) 수치 대조</div>
+                <div>
+                    <span class="tag bg-red-100 text-red-700">Consumer Price Index</span>
+                    <div class="num-val">2.9% <span class="text-[10px] font-normal text-slate-400">(전월)</span></div>
+                    <div class="date-val">발표 예정: 02.13 (금)</div>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-3 leading-tight font-medium">인베스팅 경제 캘린더 직결</div>
             </div>
 
             <div onclick="window.open('https://www.etf.com/etfanalytics/etf-fund-flows-tool', '_blank')" class="btn-card border-blue-100">
-                <div><span class="tag bg-blue-100 text-blue-700">ETF Flow</span>
-                <div class="font-bold text-[15px]">글로벌 자금 유입량</div></div>
-                <div class="text-[11px] text-slate-400 leading-tight">섹터별 테마별 실시간 수급 추적</div>
+                <div>
+                    <span class="tag bg-blue-100 text-blue-700">Market Flow</span>
+                    <div class="num-val">Tech Out</div>
+                    <div class="text-[11px] text-slate-500 font-bold mt-1 uppercase">Large-cap Exit</div>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-3 leading-tight font-medium">미국 ETF 자금 유출입 랭킹</div>
             </div>
         </div>
 
         <h2 class="text-xs font-black text-slate-400 mb-4 flex items-center gap-2 uppercase tracking-widest">
-            <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Finance & Stocks
+            <span class="w-2 h-2 bg-amber-500 rounded-full"></span> Today's Market Ranking
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
-            <div onclick="search('naver', '증시 시황')" class="btn-card">
-                <div><span class="tag bg-green-100 text-green-700">Naver Finance</span>
-                <div class="font-bold text-[15px]">국내 증시 실시간 시황</div></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
+            <div onclick="window.open('https://finance.naver.com/sise/sise_quant.naver', '_blank')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-500 transition-all cursor-pointer">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="tag bg-amber-100 text-amber-700 mb-0">Volume King</span>
+                    <span class="text-[10px] font-bold text-slate-400">실시간 1~10위 보기</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="text-2xl font-black text-slate-900">거래대금 순위</div>
+                    <div class="text-[11px] text-slate-500 leading-tight">시장의 돈이 쏠리는 <br>주도주 확인</div>
+                </div>
             </div>
-            <div onclick="window.open('https://dart.fss.or.kr/dsac001/main.do', '_blank')" class="btn-card">
-                <div><span class="tag bg-slate-800 text-white">DART</span>
-                <div class="font-bold text-[15px]">상장사 실시간 공시</div></div>
-                <div class="text-[11px] text-slate-400">금감원 전자공시시스템 직결</div>
-            </div>
-            <div onclick="window.open('https://www.investing.com/currencies/usd-krw', '_blank')" class="btn-card">
-                <div><span class="tag bg-amber-100 text-amber-700">FX</span>
-                <div class="font-bold text-[15px]">원/달러 환율 실시간</div></div>
+
+            <div onclick="window.open('https://finance.naver.com/sise/sise_upper.naver', '_blank')" class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-500 transition-all cursor-pointer">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="tag bg-emerald-100 text-emerald-700 mb-0">Top Gainers</span>
+                    <span class="text-[10px] font-bold text-slate-400">실시간 1~10위 보기</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="text-2xl font-black text-slate-900">상승률 순위</div>
+                    <div class="text-[11px] text-slate-500 leading-tight">당일 가장 강한 <br>급등주 스캔</div>
+                </div>
             </div>
         </div>
 
         <h2 class="text-xs font-black text-slate-400 mb-4 flex items-center gap-2 uppercase tracking-widest">
-            <span class="w-2 h-2 bg-rose-500 rounded-full"></span> Cosmetics Industry
+            <span class="w-2 h-2 bg-blue-500 rounded-full"></span> News & Search
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
-            <div onclick="search('google', 'site:cosinkorea.com OR site:jangup.com 화장품 정책')" class="btn-card">
-                <div><span class="tag bg-rose-100 text-rose-700">Insight</span>
-                <div class="font-bold text-[15px]">정책/규제 전문 검색</div></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+            <div onclick="search('naver', '화장품')" class="btn-card h-24">
+                <span class="tag bg-rose-100 text-rose-700">Cosmetics</span>
+                <div class="font-bold text-sm">화장품 뉴스</div>
             </div>
-            <div onclick="window.open('https://www.mfds.go.kr/brd/m_74/list.do', '_blank')" class="btn-card">
-                <div><span class="tag bg-slate-100 text-slate-700">Gov</span>
-                <div class="font-bold text-[15px]">식약처 화장품 고시</div></div>
+            <div onclick="window.open('https://dart.fss.or.kr/', '_blank')" class="btn-card h-24">
+                <span class="tag bg-slate-800 text-white">DART</span>
+                <div class="font-bold text-sm">기업 공시</div>
             </div>
-            <div onclick="search('google', '화장품 마케팅 유통 트렌드')" class="btn-card">
-                <div><span class="tag bg-rose-50 text-rose-400">Trend</span>
-                <div class="font-bold text-[15px]">마케팅/유통 트렌드</div></div>
+            <div onclick="search('google', 'site:investing.com Federal Reserve')" class="btn-card h-24">
+                <span class="tag bg-blue-100 text-blue-700">Global</span>
+                <div class="font-bold text-sm">해외 시황</div>
+            </div>
+            <div onclick="window.open('https://finance.naver.com/marketindex/', '_blank')" class="btn-card h-24">
+                <span class="tag bg-amber-100 text-amber-700">FX</span>
+                <div class="font-bold text-sm">환율/유가</div>
             </div>
         </div>
 
         <div class="bg-slate-900 p-6 rounded-3xl shadow-xl">
-            <h3 class="text-white text-xs font-bold mb-4 flex items-center gap-2 uppercase tracking-widest opacity-70">
-                Quick Company Search
-            </h3>
             <div class="flex gap-2">
-                <input type="text" id="company-input" onkeypress="if(event.keyCode==13) search('naver', this.value)" placeholder="종목명을 입력하세요..." class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white outline-none focus:ring-2 focus:ring-blue-500 text-sm">
-                <button onclick="search('naver', document.getElementById('company-input').value)" class="bg-blue-600 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-blue-500 transition-colors">검색</button>
+                <input type="text" id="company-input" onkeypress="if(event.keyCode==13) search('naver', this.value)" placeholder="종목명 입력 후 엔터..." class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                <button onclick="search('naver', document.getElementById('company-input').value)" class="bg-blue-600 text-white px-5 py-3 rounded-xl font-bold text-sm">검색</button>
             </div>
         </div>
     </div>
@@ -102,12 +121,9 @@
     <script>
         function search(engine, query) {
             if(!query) return;
-            let url = "";
-            if(engine === 'naver') {
-                url = `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}&sort=1`;
-            } else {
-                url = `https://www.google.com/search?q=${encodeURIComponent(query)}&tbm=nws&tbs=qdr:d`;
-            }
+            let url = engine === 'naver' 
+                ? `https://search.naver.com/search.naver?where=news&query=${encodeURIComponent(query)}&sort=1` 
+                : `https://www.google.com/search?q=${encodeURIComponent(query)}&tbm=nws&tbs=qdr:d`;
             window.open(url, '_blank');
         }
     </script>
